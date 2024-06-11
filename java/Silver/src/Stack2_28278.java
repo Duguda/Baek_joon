@@ -18,29 +18,29 @@ public class Stack2_28278 {
         Stack stack = new Stack();
 
         int N = Integer.parseInt(br.readLine());
-        int order;
+        String order;
         for(int i = 0; i < N; i++) {
             String[] temp = br.readLine().split(" ");
-            order = Integer.parseInt(temp[0]);
+            order = temp[0];
             switch (order)
             {
-                case 1:
+                case "push":
                     stack.push(Integer.parseInt(temp[1]));
                     break;
-                case 2:
+                case "pop":
                     bw.write(stack.pop()+"\n");
                     break;
-                case 3:
+                case "size":
                     bw.write(stack.getSize()+"\n");
                     break;
-                case 4:
+                case "empty":
                     if(stack.isEmpty())
                         bw.write(1+"\n");
                     else
                         bw.write(0+"\n");
                     break;
-                case 5:
-                    bw.write(stack.print()+"\n");
+                case "top":
+                    bw.write(stack.top()+"\n");
                     break;
             }
         }
@@ -92,4 +92,7 @@ class Stack
     {
         return size==0;
     }
+    public int top() {
+        if (isEmpty()) return -1;
+        return array[(array.length+size-1)% array.length];}
 }
